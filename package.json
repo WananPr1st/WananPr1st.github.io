@@ -1,0 +1,23 @@
+{
+  "name": "mushihome",
+  "version": "1.0.0",
+  "description": "mushi's home page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WananPr1st/WananPr1st.github.io.git"
+  },
+  "keywords": [
+    "mushi",
+    "pr1st"
+  ],
+  "author": "zhanminsi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WananPr1st/WananPr1st.github.io/issues"
+  },
+  "homepage": "https://github.com/WananPr1st/WananPr1st.github.io#readme"
+}
