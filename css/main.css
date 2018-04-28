@@ -79,6 +79,6 @@ body {
         display: block;
     }
     .phone {
-        display: none;
+        display: block;
     }
 }
