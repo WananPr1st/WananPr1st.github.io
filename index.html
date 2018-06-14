@@ -3,46 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=0">
-    <link href="https://cdn.bootcss.com/tether/1.4.0/css/tether.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
-    <title>Welcome to WananPr1st's resume</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <title>来自你对面的小姐姐</title>
+    <style type="text/css">
+    html, body, #app, .el-container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    }
+    .el-header {
+        text-align: center;
+        background-color: #409EFF;
+        color: #fff;
+        font-size: 20px;
+        line-height: 60px;
+    }
+
+    .el-main img {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .el-main {
+      background: #fff;
+      background-size: 100% 100%;
+      color: #333;
+      text-align: center;
+      line-height: 160px;
+      position: relative;
+    }
+
+    .el-main .small {
+        font-size: 20px;
+        line-height: 48px;
+        margin-top: 220px;
+    }
+
+    .el-main .medium {
+        font-size: 48px;
+        line-height: 72px;
+    }
+
+    .el-message-box {
+        width: 80%;
+    }
+    </style>
 </head>
 <body>
-<div class="pc">
-
-</div>
-<div class="phone">
-    <div class="header">
-        <p class="title">木木木木师丶</p>
+    <div id="app">
+        <el-container>
+          <el-header>来自你对面的枯眸小姐姐</el-header>
+            <el-main>
+                <img src="./image/demo.png">
+                <div class="small">小哥哥，我观察你很久了</div>
+                <div class="medium">做我女朋友好不好？</div>
+                <el-row>
+                  <el-button type="primary" round @click="sayYes()">好的</el-button>
+                  <el-button round @click="sayNo()">不好</el-button>
+                </el-row>
+            </el-main>
+            <el-footer>Footer</el-footer>
+        </el-container>
     </div>
-    <div class="container">
-        <div >
-            <img src="./image/1.jpg" alt="">
-            <img src="./image/2.jpg" alt="">
-            <img src="./image/3.jpg" alt="">
-            <img src="./image/4.jpg" alt="">
-            <img src="./image/5.jpg" alt="">
-            <img src="./image/6.jpg" alt="">
-            <img src="./image/7.jpg" alt="">
-            <img src="./image/8.jpg" alt="">
-            <img src="./image/9.jpg" alt="">
-            <img src="./image/10.jpg" alt="">
-            <img src="./image/11.jpg" alt="">
-        </div>
-    </div>
-    <div class="footer">
-        <p></p>
-    </div>
-    <div class="wechat">
-        <img src="./image/wechat.png" style="width: 70%;">
-        <p>微信号:&nbsp;zhanminsi</p>
-    </div>
-</div>
-    <script src="https://cdn.bootcss.com/tether/1.4.0/js/tether.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="./js/rem.js"></script>
-    <script src="./js/index.js"></script>
+    <script>
+        var sayNoArray = ['房产证写你名', '保大', '我妈会游泳', '生不生随你', '跟谁姓都行', '生男生女都一样', '不和爹妈住', '没有男闺蜜', '不吸毒', '不打老公', '要是搞外遇净身出户', '银行卡归你', '我不是处女座'];
+        new Vue({
+          el: '#app',
+          data: function() {
+            return {
+                sayNoCount: 0
+            }
+          },
+          methods: {
+            sayYes: function () {
+                this.$alert('十三号目标已拿下🐶', '哈哈哈哈哈哈嗝', {
+                  confirmButtonText: 'mdzz'
+                });
+            },
+            sayNo: function () {
+                this.$alert(sayNoArray[this.sayNoCount], '确定吗？😭', {
+                  confirmButtonText: '确定',
+                  callback: action => {
+                    this.sayNoCount++;
+                    if (this.sayNoCount == (sayNoArray.length - 1)) {
+                        this.sayNoCount = 0;
+                    }
+                  }
+                });
+            }
+          }
+        })
+    </script>
 </body>
 </html>
