@@ -66,6 +66,7 @@
                   <el-button type="primary" round @click="sayYes()">好的</el-button>
                   <el-button round @click="sayNo()">不好</el-button>
                 </el-row>
+                <audio style="display: none;" id="bgMusic" autoplay="autoplay" loop src="./image/zdqc.mp3"></audio>
             </el-main>
         </el-container>
     </div>
@@ -74,6 +75,34 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="./js/rem.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function audioAutoPlay() {
+                var audio = document.getElementById('bgMusic');
+                    audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    audio.play();
+                }, false);
+            }
+            audioAutoPlay();
+        });
+        //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+        document.addEventListener('touchstart', function () {
+            function audioAutoPlay() {
+                var audio = document.getElementById('bgMusic');
+                    audio.play();
+            }
+            audioAutoPlay();
+        });
+
+        //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+        document.addEventListener('click', function () {
+            function audioAutoPlay() {
+                var audio = document.getElementById('bgMusic');
+                    audio.play();
+            }
+            audioAutoPlay();
+        });
+
         var sayNoArray = ['房产证写你名', '保大', '我妈会游泳', '生不生随你', '跟谁姓都行', '生男生女都一样', '不和爹妈住', '没有男闺蜜', '不吸毒', '不打老公', '要是搞外遇净身出户', '银行卡归你', '我不是处女座'];
         new Vue({
           el: '#app',
