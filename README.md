@@ -1,37 +1,50 @@
-## Welcome to GitHub Pages
+# vuepress-theme-reco-cli
 
-You can use the [editor on GitHub](https://github.com/WananPr1st/mushi.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Blog generation tool for vuepress-theme-reco 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Version
 
-### Markdown
+|Version|VuePress|VuePress-theme-reco|
+|-|:-:|:-:|
+|0.x|0.x|0.x|
+|1.x|1.x|1.x|
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Experience
 
-```markdown
-Syntax highlighted code block
+```bash
+# create
+npx vuepress-theme-reco-cli init my-blog
+# or
+npm install  -g
+reco-cli init my-blog
 
-# Header 1
-## Header 2
-### Header 3
+# install
+cd my-blog
+npm install
 
-- Bulleted
-- List
+# run
+npm run dev
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+# build
+npm run build
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+**if yarn**
 
-### Jekyll Themes
+```bash
+# create
+npx vuepress-theme-reco-cli init my-blog
+#or
+yarn global add vuepress-theme-reco-cli
+reco-cli init my-blog
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/WananPr1st/mushi.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+# install
+cd my-blog
+yarn install
 
-### Support or Contact
+# run
+yarn dev
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+# build
+yarn build
+```
