@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/',
   title: "WananPr1st's Blog",
   description: 'A simple and beautiful vuepress blog theme .',
   dest: 'public',
