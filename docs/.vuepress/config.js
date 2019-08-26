@@ -1,8 +1,8 @@
 module.exports = {
-  base: '/',
+  base: '/blog/',
   title: "WananPr1st's Blog",
   description: 'A simple and beautiful vuepress blog theme .',
-  dest: 'public',
+  // dest: 'public',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ["link", { rel: "manifest", href: "/manifest.json" }],
