@@ -1,8 +1,8 @@
 module.exports = {
   base: '/blog/',
   title: "WananPr1st's Blog",
-  description: 'A simple and beautiful vuepress blog theme .',
-  // dest: 'public',
+  description: '苟利国家生死以，岂因祸福避趋之。',
+  dest: 'public',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ["link", { rel: "manifest", href: "/manifest.json" }],
@@ -17,12 +17,13 @@ module.exports = {
       { text: 'Contact', 
         icon: 'reco-message',
         items: [
-          { text: 'NPM', link: 'https://www.npmjs.com/~reco_luan', icon: 'reco-npm' },
+          { text: 'GitHub', link: 'https://github.com/WananPr1st', icon: 'reco-github' },
+         /*  { text: 'NPM', link: 'https://www.npmjs.com/~reco_luan', icon: 'reco-npm' },
           { text: 'GitHub', link: 'https://github.com/recoluan', icon: 'reco-github' },
           { text: '简书', link: 'https://www.jianshu.com/u/cd674a19515e', icon: 'reco-jianshu' },
           { text: 'CSDN', link: 'https://blog.csdn.net/recoluan', icon: 'reco-csdn' },
           { text: '博客圆', link: 'https://www.cnblogs.com/luanhewei/', icon: 'reco-bokeyuan' },
-          { text: 'WeChat', link: 'https://mp.weixin.qq.com/s/mXFqeUTegdvPliXknAAG_A', icon: 'reco-wechat' },
+          { text: 'WeChat', link: 'https://mp.weixin.qq.com/s/mXFqeUTegdvPliXknAAG_A', icon: 'reco-wechat' }, */
         ]
       }
     ],
@@ -30,11 +31,11 @@ module.exports = {
     blogConfig: {
       category: {
         location: 2, // 在导航栏菜单中所占的位置，默认2
-        text: 'Category' // 默认 “分类”
+        text: '分类' // 默认 “分类”
       },
       tag: {
         location: 3, // 在导航栏菜单中所占的位置，默认3
-        text: 'Tag' // 默认 “标签”
+        text: '标签' // 默认 “标签”
       }
     },
     logo: '/head.png',
@@ -66,8 +67,8 @@ module.exports = {
      */
 
     valineConfig: {
-      appId: '...',// your appId
-      appKey: '...', // your appKey
+      appId: 'C4MYoORB3qQkR6cutgwSl9ay-gzGzoHsz',// your appId
+      appKey: 'w99VO0haXFl8BA6VgtmQwE0J', // your appKey
     }
   },
   markdown: {
