@@ -1,0 +1,68 @@
+html, body, #app {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'huakang';
+    src: url('../fonts/华康钢笔体W2-GB.ttc');
+}
+
+#app {
+    /* background: #f1908c; */
+    /* color: #fff; */
+    color: black;
+    position: relative;
+    font-family: 'huakang';
+    background: url('../image/timg1.gif')
+}
+
+#app > .iconfont-music {
+    color: #1afa29;
+    font-size: 32px;
+    border: 1px solid;
+    border-radius: 50%;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+}
+
+.cake-image {
+    margin-top: 40px;
+}
+
+.cake-desc {
+    margin-top: 10px;
+    font-size: 36px;
+    text-align: center;
+    color: #0eb0c9;
+}
+
+.qingshu-img {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.qingshu-content {
+    height: 400px;
+    overflow: auto;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: justify;
+
+.van-dialog__header {
+    padding-top: 12px;
+}
+
+.avatar-image {
+    display: inline-block;
+}
+
+.van-dialog__confirm {
+    font-family: 'Microfsoft Yahei'
+}

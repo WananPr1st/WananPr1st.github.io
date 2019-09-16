@@ -1,12 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 在 head 标签中添加 meta 标签，并设置 viewport-fit=cover 值 -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+
+    <!-- 开启 safe-area-inset-bottom 属性 -->
+    <van-number-keyboard safe-area-inset-bottom />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.2/lib/index.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1414787_6taegl4s16v.css">
 </head>
+
 <body>
-    <div>123</div>
+    <div id="app">
+        <span class="iconfont iconfont-music icon-music-mute" @click.stop="togglePlay()"></span>
+        <van-image class="cake-image" fit="contain" width="100%" height="300px" src="./assets/image/cake.gif">
+        </van-image>
+        <div class="cake-desc">小仙女生日快乐！</div>
+        <van-image class="qingshu-img" src="./assets/image/情书.svg" fit="contain" width="60px" @click="showQingshu">
+        </van-image>
+        <van-dialog title="写给仙女庆的情书" v-model="showModal" confirm-button-text="本仙女已阅" :close-on-click-overlay="true">
+            <van-row>
+                <van-col span="3" offset="2">
+                    <van-image class="avatar-image" round fit="contain" width="30px" height="30px" src="./assets/image/avatar.jpeg">
+                    </van-image>
+                </van-col>
+                <van-col span="18">
+                    <div class="qingshu-content">{{content}}</div>
+                </van-col>
+            </van-row>
+        </van-dialog>
+        <audio lazy-load id="audio" src="./assets/music/林俊杰-当你.flac"></audio>
+    </div>
+    <script src="./assets/js/zepto.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.2/lib/vant.min.js"></script>
+    <script>
+        var Vue = window.Vue;
+        var vant = window.vant;
+        var musicList = [
+            './assets/music/米津玄師 (よねづ けんし)-Lemon.flac'
+        ]
+        Vue.use(vant);
+        var audio = $('audio')[0];
+        $('html').one('click', function () {
+            // audio.src = './assets/music/赵家豪gary-慢慢喜欢你 (Live).qmcflac';
+            audio.play();
+        })
+        audio.onended = function () {
+            audio.src = musicList.shift();
+            audio.currentTime = 0;
+            audio.play();
+        }
+        var app = new Vue({
+            el: '#app',
+            data: function () {
+                var oriContent = '  当你的眼睛眯着笑，当你喝可乐当你吵，我想对你好，你从来都知道，想你想你，也能成为嗜好...从去年12.01的相识，到今天9.17认识我家小仙女已经290天，6960个小时，417600分钟，25056000秒啦！2018.12.23第一次见面，第一次有想把你拥入怀中的冲动；2018.12.30，第一次和你在雪中漫步，虽然鞋都湿了，但是第一次牵到女孩子的手；2019.01.01凌晨，第一次送女生花和对小仙女第一次表白以失败告终，不过一起度过了一个难忘的跨年夜；2019.02.08，第一次kiss；2019.02.28，第一次吵架...太多的第一次与你相关，希望今后也能与你过好每个第一次和每一次。关于喜欢我们家庆什么呢？太多了，首先我们家庆的颜值，可是被小贝称作“瓷肌”的；然后最看重的一点就是孝顺，这点跟哥哥我差不多；再然后就是';
+                return {
+                    content: '',
+                    showModal: false,
+                    content: '',
+                    contentArr: oriContent.split('')
+                }
+            },
+            methods: {
+                togglePlay: function () {
+                    if (audio.paused) {
+                        audio.play();
+                    } else {
+                        audio.pause();
+                    }
+                    $('.iconfont').toggleClass('icon-music').toggleClass('icon-music-mute');
+                },
+                showQingshu: function () {
+                    var me = this;
+                    this.content = '';
+                    this.showModal = true;
+                    setInterval(function () {
+                        if (me.contentArr.length) {
+                            me.content += me.contentArr.shift()
+                        }
+                    }, 200);
+                }
+            }
+        });
+    </script>
 </body>
+
 </html>
