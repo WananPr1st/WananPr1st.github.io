@@ -15,7 +15,7 @@ html, body, #app {
     color: black;
     position: relative;
     font-family: 'huakang';
-    background: url('../image/timg1.gif')
+    background: url('https://img.baijiayun.com/0baijiatools/c4b99c81789c12a052f603e1c189c0f9/timg1.gif')
 }
 
 #app > .iconfont-music {
@@ -54,13 +54,10 @@ html, body, #app {
     font-size: 16px;
     line-height: 20px;
     text-align: justify;
-
-.van-dialog__header {
-    padding-top: 12px;
 }
 
-.avatar-image {
-    display: inline-block;
+.van-dialog__header {
+    padding-top: 8px;
 }
 
 .van-dialog__confirm {
