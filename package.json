@@ -1,20 +1,19 @@
 {
-    "name": "WananPr1st.github.io",
-    "version": "1.0.0",
-    "repository": "http://recoluan.gitlab.io/vuepress-theme-reco-doc",
-    "author": "reco_luan",
-    "scripts": {
-        "dev": "vuepress dev docs",
-        "build": "vuepress build docs"
-    },
-    "devDependencies": {
-        "vuepress": "1.0.1",
-        "vuepress-theme-reco": "1.0.4",
-        "@vuepress/plugin-pwa": "1.0.3",
-        "@vuepress/plugin-medium-zoom": "1.0.3",
-        "vuepress-plugin-flowchart": "1.4.3"
-    },
-    "dependencies": {
-        "vuepress-plugin-cat": "^1.0.3"
-    }
+  "name": "wananpr1st.github.io",
+  "version": "1.0.0",
+  "description": "Blog generation tool for vuepress-theme-reco",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WananPr1st/WananPr1st.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WananPr1st/WananPr1st.github.io/issues"
+  },
+  "homepage": "https://github.com/WananPr1st/WananPr1st.github.io#readme"
 }
