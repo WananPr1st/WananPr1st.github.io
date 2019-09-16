@@ -6,7 +6,7 @@ html, body, #app {
 
 @font-face {
     font-family: 'huakang';
-    src: url('../fonts/华康钢笔体W2-GB.ttc');
+    src: url('https://img.baijiayun.com/0baijiatools/9199e1578ea95f7dee8063cd18b5132b/华康钢笔体W2-GB.ttc');
 }
 
 #app {
