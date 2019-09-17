@@ -56,7 +56,8 @@
         var vant = window.vant;
         var musicList = [
             'https://img.baijiayun.com/0baijiatools/01fea74ea1f4d8eabfd2d26bb1ccfe45/米津玄師-Lemon.mp3',
-            'https://img.baijiayun.com/0baijiatools/01fea74ea1f4d8eabfd2d26bb1ccfe45/TaylorSwift-LoveStory.mp3'
+            'https://img.baijiayun.com/0baijiatools/01fea74ea1f4d8eabfd2d26bb1ccfe45/TaylorSwift-LoveStory.mp3',
+            'https://img.baijiayun.com/0baijiatools/931d36e01b0eaddcb3bb9b087bf6e680/周杰伦-说好不哭.mp3'
         ]
         Vue.use(vant);
         var audio = $('audio')[0];
@@ -104,8 +105,11 @@
                     done();
                 },
                 beforeImageClose: function (action, done) {
-                    audio.src = 'https://img.baijiayun.com/0baijiatools/4fc47c0403b700d13447a2c6029ffadb/烟把儿乐队-纸短情长.mp3';
-                    audio.currentTime = 180;
+                    // audio.src = 'https://img.baijiayun.com/0baijiatools/4fc47c0403b700d13447a2c6029ffadb/烟把儿乐队-纸短情长.mp3';
+                    // 纸短情长替换为说好不哭
+                    audio.src = 'https://img.baijiayun.com/0baijiatools/931d36e01b0eaddcb3bb9b087bf6e680/周杰伦-说好不哭.mp3';
+                    // audio.currentTime = 180;
+                    audio.currentTime = 25;
                     audio.play();
                     done();
                 },
