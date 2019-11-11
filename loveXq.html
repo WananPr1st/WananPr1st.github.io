@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 在 head 标签中添加 meta 标签，并设置 viewport-fit=cover 值 -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+
+    <!-- 开启 safe-area-inset-bottom 属性 -->
+    <van-number-keyboard safe-area-inset-bottom />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>仙女庆🎂快乐~</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.2/lib/index.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1414787_6taegl4s16v.css">
+</head>
+
+<body>
+    <div id="app">
+        <span class="iconfont iconfont-music icon-music-mute" @click.stop="togglePlay()"></span>
+        <van-image class="cake-image" fit="contain" width="100%" height="300px"
+            src="https://img.baijiayun.com/0baijiatools/c4b99c81789c12a052f603e1c189c0f9/cake.gif">
+        </van-image>
+        <div class="cake-desc">小仙女生日快乐！</div>
+        <van-image class="qingshu-img" src="https://img.baijiayun.com/0baijiatools/ed6efdd5ee0b07b4b9ba8aef89546d81/情书.svg" fit="contain" width="60px" @click="showQingshu">
+        </van-image>
+        <van-dialog title="写给仙女庆的情书" v-model="showModal" confirm-button-text="本仙女已阅" :close-on-click-overlay="true"
+            :before-close="beforeClose">
+            <van-row>
+                <van-col span="3" offset="1">
+                    <van-image class="avatar-image" round fit="contain" width="30px" height="30px"
+                        src="https://img.baijiayun.com/0baijiatools/c4b99c81789c12a052f603e1c189c0f9/avatar.jpeg">
+                    </van-image>
+                </van-col>
+                <van-col span="19">
+                    <div class="qingshu-content">{{content}}</div>
+                </van-col>
+            </van-row>
+        </van-dialog>
+        <van-dialog style="width: 220px;" confirm-button-text="生日快乐" v-model="showImageModal" title="我的故事都是关于你呀" :before-close="beforeImageClose">
+            <van-swipe :width="220" :autoplay="3000">
+                <van-swipe-item v-for="(image, index) in images" :key="index">
+                    <img :src="image" v-lazy="image" style="width: 100%;height: 300px;object-fit: contain;" />
+                </van-swipe-item>
+            </van-swipe>
+        </van-dialog>
+        <audio lazy-load id="audio"
+            src="https://img.baijiayun.com/0baijiatools/01fea74ea1f4d8eabfd2d26bb1ccfe45/林俊杰-当你.mp3"></audio>
+    </div>
+    <script src="./assets/js/zepto.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.2/lib/vant.min.js"></script>
+    <script>
+        var Vue = window.Vue;
+        var vant = window.vant;
+        var musicList = [
+            'https://img.baijiayun.com/0baijiatools/01fea74ea1f4d8eabfd2d26bb1ccfe45/米津玄師-Lemon.mp3',
+            'https://img.baijiayun.com/0baijiatools/01fea74ea1f4d8eabfd2d26bb1ccfe45/TaylorSwift-LoveStory.mp3',
+            'https://img.baijiayun.com/0baijiatools/931d36e01b0eaddcb3bb9b087bf6e680/周杰伦-说好不哭.mp3'
+        ]
+        Vue.use(vant);
+        var audio = $('audio')[0];
+        $('html').one('click', function () {
+            audio.play();
+        })
+        audio.onended = function () {
+            audio.src = musicList.shift();
+            audio.currentTime = 0;
+            audio.play();
+        }
+        var app = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    content: '',
+                    showModal: false,
+                    content: '',
+                    images: [
+                        'https://img.baijiayun.com/0baijiatools/a3b9b78eb6caac06e5b90bf198473d73/1031568644667_.pic.jpg',
+                        'https://img.baijiayun.com/0baijiatools/a3b9b78eb6caac06e5b90bf198473d73/1091568644673_.pic.jpg',
+                        'https://img.baijiayun.com/0baijiatools/a3b9b78eb6caac06e5b90bf198473d73/1081568644672_.pic.jpg',
+                        'https://img.baijiayun.com/0baijiatools/a3b9b78eb6caac06e5b90bf198473d73/1071568644671_.pic_hd.jpg',
+                        'https://img.baijiayun.com/0baijiatools/a3b9b78eb6caac06e5b90bf198473d73/1061568644670_.pic_hd.jpg',
+                        'https://img.baijiayun.com/0baijiatools/a3b9b78eb6caac06e5b90bf198473d73/1051568644669_.pic.jpg',
+                        'https://img.baijiayun.com/0baijiatools/a3b9b78eb6caac06e5b90bf198473d73/1041568644668_.pic.jpg',
+                        'https://img.baijiayun.com/0baijiatools/a3b9b78eb6caac06e5b90bf198473d73/1101568644674_.pic_hd.jpg',
+                    ],
+                    showImageModal: false
+                }
+            },
+            methods: {
+                togglePlay: function () {
+                    if (audio.paused) {
+                        audio.play();
+                    } else {
+                        audio.pause();
+                    }
+                    $('.iconfont').toggleClass('icon-music').toggleClass('icon-music-mute');
+                },
+                beforeClose: function (action, done) {
+                    if (action === 'confirm') {
+                        this.showImageModal = true;
+                    }
+                    done();
+                },
+                beforeImageClose: function (action, done) {
+                    // audio.src = 'https://img.baijiayun.com/0baijiatools/4fc47c0403b700d13447a2c6029ffadb/烟把儿乐队-纸短情长.mp3';
+                    // 纸短情长替换为说好不哭
+                    audio.src =
+                        'https://img.baijiayun.com/0baijiatools/931d36e01b0eaddcb3bb9b087bf6e680/周杰伦-说好不哭.mp3';
+                    // audio.currentTime = 180;
+                    audio.currentTime = 25;
+                    audio.play();
+                    done();
+                },
+                showQingshu: function () {
+                    var me = this;
+                    this.content = '';
+                    this.oriContent =
+                        '  当你的眼睛眯着笑，当你喝可乐当你吵，我想对你好，你从来都知道，想你想你，也能成为嗜好...从去年12.01的相识，到今天认识我家小仙女张小庆已经290天，6960个小时，417600分钟，25056000秒啦！2018.12.23第一次见面，第一次有想把你拥入怀中的冲动；2018.12.30，第一次和你在雪中漫步，虽然鞋都湿了，但是第一次牵到了女孩子的手；2019.01.01凌晨，第一次送女生花和对小仙女第一次表白以失败告终，不过一起度过了一个难忘的跨年夜；2019.02.08，第一次kiss，两个青涩的新手；2019.02.28，第一次吵架...太多的第一次与你相关，希望今后也能与你过好每个第一次和每一次。喜欢我们家庆什么呢？首先我们家庆的颜值高身材好，被小贝称作“瓷肌”，嘞的很，希望后面少上夜班，不长痘痘，胶原蛋白越来越多；然后最看重的一点就是孝顺，这点跟哥哥我差不多，以后我们一起共同努力孝敬长辈；再然后就是对哥哥我的关心在乎，长这么大，庆哥是除了我妈最关心我的了，ღ( ´･ᴗ･` )比心；还有厨艺也是青出于丈母娘的蓝而更甚于蓝，吃着小仙女做的饭感觉很幸福，这以后要加大锻炼量，不然又要长胖咯；还有庆哥的救命之恩，只能以身相许… 优点太多了，数不过来。认识你以后，我觉得自己也改变了很多，越来越能感受到责任，家庭这两个字，工作也越来越努力，认真，生活也不仅是代码，游戏了，还有你。很高兴认识你，很感激拥有你，很想现在亲亲你😗————你爱的爱你的湛哥';
+                    this.contentArr = this.oriContent.split('');
+                    clearInterval(this.interval);
+                    this.showModal = true;
+                    this.interval = setInterval(function () {
+                        if (me.contentArr.length) {
+                            me.content += me.contentArr.shift();
+                            $('.qingshu-content')[0].scrollTop = $('.qingshu-content')[0]
+                                .scrollHeight;
+                        } else {
+                            clearInterval(this.interval);
+                        }
+                    }, 200);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
